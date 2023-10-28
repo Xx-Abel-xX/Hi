@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D-ID Streaming POC</title>
+    <!-- added google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: #262627;
+      }
+      .peerConnectionState-new {
+        color: cornflowerblue;
+      }
+      .peerConnectionState-connecting {
+        color: orange;
+      }
+      .peerConnectionState-connected {
+        color: green;
+      }
+      .peerConnectionState-disconnected,
+      .peerConnectionState-closed,
+      .peerConnectionState-failed {
+        color: red;
+      }
+
+      .iceConnectionState-new {
+        color: cornflowerblue;
+      }
+      .iceConnectionState-checking {
+        color: orange;
+      }
+      .iceConnectionState-connected,
+      .iceConnectionState-completed {
+        color: green;
+      }
+      .peerConnectionState-disconnected,
+      .peerConnectionState-closed,
+      .peerConnectionState-failed {
+        color: red;
+      }
+
+      .iceGatheringState-new {
+        color: cornflowerblue;
+      }
+      .iceGatheringState-gathering {
+        color: orange;
+      }
+      .iceGatheringState-complete {
+        color: black;
+      }
+
+      .signalingState-stable {
+        color: green;
+      }
+      .signalingState-have-local-offer,
+      .signalingState-have-remote-offer,
+      .signalingState-have-local-pranswer,
+      .signalingState-have-remote-pranswer {
+        color: cornflowerblue;
+      }
+      .signalingState-closed {
+        color: red;
+      }
+
+      .streamingState-streaming {
+        color: green;
+      }
+
+      .streamingState-empty {
+        color: grey;
+      }
+
+      /* added css from here */
+
+      body * {
+        font-family: serif;
+        text-align: center;
+      }
+
+      #content {
+        width: 100%;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 90px;
+      }
+
+      #buttons {
+        clear: both;
+        text-align: center;
+      }
+
+      button{
+        border: 2px outset gray;
+        background: rgb(211, 211, 211);
+        transform: scale(1.5);
+        margin: 0 20px;
+      }
+
+      #status {
+        margin: auto;
+        display: flex;
+        zoom: 1;
+        line-height: 140%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .box{
+        display: none;
+      }
+      #video-wrapper {
+        background: url(bg.png);
+        height: 100vh;
+        background-position: top;
+      }
+
+      #video-wrapper div {
+        width: 100%;
+      }
+      video {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background-color: #000000;
+      }
+      .response{
+        margin: auto;
+        width:35vw;
+        height: 100%;
+        color: #000000;
+        margin-bottom: 10px ;
+        border: 4px outset gray;
+        background: rgb(190, 190, 190);
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- adde "id=content" -->
+    <div id="content">
+      <!-- added "id=video-wrapper" -->
+      <div id="video-wrapper">
+        <div>
+          <video id="talk-video" width="400" height="400" autoplay></video>
+        </div>
+      </div>
+      <br />
+
+      <!-- added div#buttons -->
+      <div id="buttons">
+        <button id="connect-button" type="button">Connect</button>
+        <button class=' generar ' >Generar</button>
+        <button id="destroy-button" type="button">Destroy</button>
+      </div>
+
+      <!-- added div#status -->
+      <div id="status">
+        <!-- removed the wrapping <div> tags -->
+        <div class="box">
+
+          ICE gathering status: <label id="ice-gathering-status-label"></label
+          ><br />
+          ICE status: <label id="ice-status-label"></label><br />
+          Peer connection status: <label id="peer-status-label"></label><br />
+          Signaling status: <label id="signaling-status-label"></label><br />
+          Streaming status: <label id="streaming-status-label"></label><br />
+        </div>
+        <main class="response">
+          <p class="tex-response">Preguntame algo...</p>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+    <script>
+
+    </script>
+  </body>
+</html>
